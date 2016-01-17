@@ -18,8 +18,8 @@
     "dist"
   ],
   "scripts": {
-    "prepublish": "npm run clean && npm run build && npm run changelog",
-    "postpublish": "npm run docs",
+    "preversion": "npm run clean && npm run build && npm docs",
+    "postversion": "npm run changelog",
     "build": "babel src --out-dir dist",
     "clean": "rimraf dist",
     "lint": "eslint src",
@@ -48,6 +48,7 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.4.3",
+    "babelify": "^7.2.0",
     "eslint": "^1.10.3",
     "eslint-config-rackt": "^1.1.1",
     "eslint-plugin-react": "^3.15.0",
@@ -57,5 +58,16 @@
     "mochify": "dylanfm/mochify.js",
     "rimraf": "^2.5.0",
     "should": "^8.0.0"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "ecmaFeatures": {
+      "modules": true
+    }
   }
 }
