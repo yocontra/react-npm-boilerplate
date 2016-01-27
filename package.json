@@ -61,6 +61,7 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
+    "extends": "rackt",
     "env": {
       "browser": true,
       "node": true,
